@@ -26,18 +26,18 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="/">INICIO<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{route ('inicio')}}">INICIO<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/cargaralumno">CARGAR ALUMNO</a>
+              <a class="nav-link" href="{{route ('cargaralumno')}}">CARGAR ALUMNO</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 COBROS
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="/cobrosdia">COBROS DEL DIA</a>
-                <a class="dropdown-item" href="/cobrosmes">COBROS DEL MES</a>
+                <a class="dropdown-item" href="{{route ('cobrosdia')}}">COBROS DEL DIA</a>
+                <a class="dropdown-item" href="{{route ('cobrosmes')}}">COBROS DEL MES</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -51,10 +51,10 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/verhistorial">VER HISTORIAL</a>
+              <a class="nav-link" href="{{route ('verhistorial')}}">VER HISTORIAL</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/veralumnos">VER ALUMNOS</a>
+              <a class="nav-link" href="{{route ('veralumnos')}}">VER ALUMNOS</a>
             </li>
           </ul>
         </div>

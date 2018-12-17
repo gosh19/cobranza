@@ -68,7 +68,7 @@
             <td>{{$dato['dni']}}</td>
             <td>{{$dato['mail']}}</td>
             <td>{{$dato['tarjeta']}}</td>
-            <td><a href="/alumno-id/{{$dato['id']}}">VER</a></td>
+            <td><a href="{{route('alumnoid', ['id' => $dato['id']]) }}">VER</a></td>
           </tr>
         @endif
         @php
@@ -100,7 +100,7 @@
                 <td>{{$dato['dni']}}</td>
                 <td>{{$dato['mail']}}</td>
                 <td>{{$dato['tarjeta']}}</td>
-                <td><a href="/alumno-id/{{$dato['id']}}">VER</a></td>
+                <td><a href="{{route('alumnoid', ['id' => $dato['id']]) }}">VER</a></td>
               </tr>
             @endif
           @endif

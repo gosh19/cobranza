@@ -12,12 +12,12 @@
 */
 Route::get('/', function (){
     return view('inicio');
-});
-Route::get('/cargaralumno','PaginasController@cargaralumno');
+})->name('inicio');
+Route::get('/cargaralumno','PaginasController@cargaralumno')->name('cargaralumno');
 Route::get('/cargarcobro','PaginasController@cargarcobro');
 Route::get('/cargar/{id}','PaginasController@cargar');
-Route::get('/cobrosdia','PaginasController@cobrosdia');
-Route::get('/cobrosmes','PaginasController@cobrosmes');
+Route::get('/cobrosdia','PaginasController@cobrosdia')->name('cobrosdia');
+Route::get('/cobrosmes','PaginasController@cobrosmes')->name('cobrosmes');
 Route::get('/cobro_id/{id}','PaginasController@cobroid');
 Route::get('/cargar_id/{id}','PaginasController@cargarid');
 Route::get('/editar/{id}','PaginasController@editar');
@@ -25,14 +25,24 @@ Route::get('/editar-cobro/{id}','PaginasController@editarcobro');
 Route::get('/borrar/{id}','PaginasController@borrar');
 Route::get('/exito','PaginasController@exito');
 Route::get('/sin-cupo/{id}','PaginasController@sincupo');
-Route::get('/verhistorial','PaginasController@verhistorial');
+Route::get('/verhistorial','PaginasController@verhistorial')->name('verhistorial');
 Route::get('/verhistorial/{motivo}','PaginasController@verhistorialconmotivo');
-Route::get('/veralumnos','PaginasController@veralumnos');
-Route::get('/alumno-id/{id}','PaginasController@alumnoid');
-Route::get('/baja/{id}','PaginasController@baja');
+Route::get('/veralumnos','PaginasController@veralumnos')->name('veralumnos');
+Route::get('/alumno_id/{id}',[
+  'as' => 'alumnoid',
+  'uses' => 'PaginasController@alumnoid'
+  ]);
+Route::get('/baja/{id}',[
+  'as' => 'baja',
+  'uses' => 'PaginasController@baja'
+  ]);
 Route::get('/cargar-factura/{id}','PaginasController@cargarfactura');
 Route::get('/alumno-postventa/{id}','PaginasController@alumnopostventa');
 
+Route::post('/cargarComentario/{id}',[
+  'as' => 'cargarComentario',
+  'uses' => 'FuncionesController@cargarComentario'
+]);
 
 Route::get('/xd',function(){
   return view('xd');

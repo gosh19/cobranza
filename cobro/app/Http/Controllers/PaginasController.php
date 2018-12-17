@@ -9,6 +9,7 @@ use App\titular;
 use App\Cupo;
 use Carbon\Carbon;
 use App\Baja;
+use App\Contacto;
 
 use Illuminate\Http\Request;
 
@@ -330,10 +331,13 @@ class PaginasController extends Controller
     $estado = Estado::find($id);
     $baja = Baja::find($id);
     $cobros = Cobro::where('id','=',$id)->get();
+    $comentarios = Contacto::where('id','=',$id)->orderBy('created_at','DESC')->get()->take(10);
     return view('alumno-id', ['dato' => $dato,
                               'cobros' => $cobros,
                               'baja' => $baja,
-                              'estado' => $estado]);
+                              'estado' => $estado,
+                              'comentarios' => $comentarios
+                            ]);
   }
   public function cargarfactura($id, Request $request){
     $dato = Dato::find($id);

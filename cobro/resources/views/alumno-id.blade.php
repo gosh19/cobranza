@@ -28,6 +28,13 @@
       <a href="/cargar-factura/{{$dato['id']}}">
         <div id="devolucion" class="text-center">Cargar factura</div>
       </a>
+      <div class="form-group">
+        <form class="" action="{{route('cargarComentario',['id' => $dato['id']])}}" method="post">
+          @csrf
+          <textarea id="comentario" name="comentario" rows="3" cols="70" placeholder="Ingresa un comentario..." required></textarea><br>
+          <input type="submit" class="btn btn-primary" name="" value="Cargar">
+        </form>
+      </div>
     </div>
     <div class="col">
       <div class="table-responsive">
@@ -86,6 +93,24 @@
     </div>
     <div id="wea">
 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="table">
+        <table class="table-responsive">
+          <tr>
+            <th>Comentario</th>
+            <th>Fecha</th>
+          </tr>
+          @foreach ($comentarios as $comentario)
+            <tr>
+              <td>{{$comentario['comentario']}}</td>
+              <td>{{$comentario['created_at']}}</td>
+            </tr>
+          @endforeach
+        </table>
+      </div>
     </div>
   </div>
 @endsection

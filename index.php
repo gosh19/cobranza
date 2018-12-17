@@ -1,5 +1,4 @@
 <?php
-echo "asdasdasdasd";
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
