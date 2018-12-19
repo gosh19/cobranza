@@ -13,6 +13,10 @@ class FuncionesController extends Controller
         'id' => $id,
         'comentario' => $request['comentario']
       ]);
+
+      if ($request['boton']=="Cargar") {
+        return redirect('/cobro_id/'.$id);
+      }
       return redirect()->route('alumnoid',['id' => $id]);
     }
 }

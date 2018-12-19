@@ -132,20 +132,36 @@ function wea(valor) {
         </form>
       </div>
     </div>
-  <div class="form-group">
-    <button type="button" name="button" class="btn btn-block btn-primary" id="actualizar-cupo">ACTUALIZAR CUPO</button>
+
+<div class="row">
+  <div class="d-flex justify-content-center">
+    <div class="form-group">
+      <form class="" action="{{route('cargarComentario',['id' => $dato['id']])}}" method="post">
+        @csrf
+        <textarea id="comentario" name="comentario" rows="3" cols="70" placeholder="Ingresa un comentario..." required></textarea><br>
+        <input type="submit" class="btn btn-primary" name="boton" value="Cargar">
+      </form>
+    </div>
+
   </div>
-  <div id="panel">
-    <div class="d-flex justify-content-center">
       <div class="form-block">
-        <form class="" action="/sin-cupo/{{$dato['id']}}" method="get">
-          <input type="text" name="cupo" value="" placeholder="Ingrese Cupo"><br>
-          <input type="text" name="fecha" value="{{$fecha}}"><br>
-          <input type="submit" name="Enviar" value="Cargar">
-        </form>
+        <div class="table">
+          <table class="table-responsive">
+            <tr>
+              <th>Comentario</th>
+              <th>Fecha</th>
+            </tr>
+            @foreach ($comentarios as $comentario)
+              <tr>
+                <td>{{$comentario['comentario']}}</td>
+                <td>{{$comentario['created_at']}}</td>
+              </tr>
+            @endforeach
+          </table>
       </div>
     </div>
   </div>
+
 
   @endsection
 @endsection

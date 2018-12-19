@@ -196,7 +196,16 @@ class PaginasController extends Controller
     $cobros = Cobro::where('id','=', $id)->get();
     $carbon = Carbon::now();
     $carbon = $carbon->format('Y-m-d');
-    return view('cobros_id',['cupo' => $cupo, 'dato' => $dato, 'fecha'=>$carbon, 'estado'=>$estado, 'titular'=>$titular, 'cobros' => $cobros]);
+    $comentarios = Contacto::where('id','=',$id)->orderBy('created_at','DESC')->get()->take(10);
+    return view('cobros_id',[
+      'cupo' => $cupo,
+      'dato' => $dato,
+      'fecha'=>$carbon,
+      'estado'=>$estado,
+      'titular'=>$titular,
+      'cobros' => $cobros,
+      'comentarios' => $comentarios,
+    ]);
   }
   /**
    * MUESTRA EL HISTORIAL
